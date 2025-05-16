@@ -52,13 +52,33 @@ class Program
 
             if (pie1 == posicion1) posicion1 = cabecera1;
 
-            if (pie1 == posicion1) posicion1 = cabecera1;
+            if (pie2 == posicion1) posicion1 = cabecera2;
             #endregion
 
             #region determinar avance jugador 2
+            dado = azar.Next(1, 7);
+            posicion1 += dado;
+
+            if (cabeza == posicion2) posicion2 = cola;
+
+            if (pie1 == posicion2) posicion2 = cabecera1;
+
+            if (pie2 == posicion2) posicion2 = cabecera2;
             #endregion
+
+            sigue = posicion1 >= 100 || posicion2 >= 100;
 
         } while (sigue);
         #endregion
+
+        if (posicion1 >= 100 ^ posicion2 >= 100)
+        {
+            if (posicion1 >= 100) Console.WriteLine("Ganador: " + nombre1);
+            else Console.WriteLine($"Ganador: {nombre2}");
+        }
+        else
+        {
+            Console.WriteLine("Ganador: {0}", nombre2);
+        }
     }
 }
